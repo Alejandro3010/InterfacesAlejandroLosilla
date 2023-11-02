@@ -1,4 +1,11 @@
+@font-face {
+  font-family: Fuente1;
+  src: url(media/static/Sora-Regular.ttf);
+}
 
+* {
+  font-family: Fuente1;
+}
 
 ul {
   list-style-type: none;
@@ -14,28 +21,121 @@ ul {
   height: 8%;
 
   display: flex;
-  justify-content:right;
+  justify-content:left;
   width: 100%;
 }
 
 li {
   padding-top: 30px;
-  padding-right: 50px;
-  float:right;
-}
-
-div {
-    background-color: #02cd9e;
+  padding-right: 0px;
+  width: 20%;
+  position: relative;
 }
 
 li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
+  font-size: 1.1em;
 }
 
 li a:hover {
   background-color: #111;
+}
+
+img {
+  position: fixed;
+  width: auto;
+  height: 7.5%;
+  z-index: 1;
+  bottom: 92%;
+}
+
+.div1 {
+  position: absolute;
+  display: flex;
+  top: 9.5%;
+  left: 2%;
+  display: block;
+  background-color: #f5f5f5;
+  width: 45%;
+  height: 35%;
+}
+
+
+.divBarra1 {
+  position: absolute;
+  display: flex;
+  top: 10%;
+  left: 3%;
+  background-color:#808183;
+  width: 45%;
+  height: .58%;
+}
+.divBarra2 {
+  position: absolute;
+  display: flex;
+  top: 100%;
+  background-color:#02cd9e;
+  width: 100%;
+  height: 2%;
+}
+
+.div4 {
+  position: absolute;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  display: block;
+  background-color: #f5f5f5;
+  width: 45%;
+  height: 35%;
+}
+
+button {
+  padding: 15px 50px;
+
+  cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  gap: 0px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Hover affect with left to right animation */
+
+.hover-left-right {
+  position: relative;
+  display: flex;
+  top: 60%;
+  left: 3.5%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px;
+  color: black;
+  background: white;
+  border: 1px solid black;
+  border-left: 12px solid black;
+  cursor: pointer;
+  overflow:hidden; /* Hide the overflow for the pseudo-element */
+}
+
+.hover-left-right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  /* BG colour is transparent */
+  transition: left 0.3s ease;
+}
+
+.hover-left-right:hover::before {
+  left: 0;
 }
