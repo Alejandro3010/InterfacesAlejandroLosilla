@@ -34,43 +34,6 @@ body {
   color: black;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #02cd9e;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 8%;
-
-  display: flex;
-  justify-content:left;
-  width: 100%;  
-}
-
-li {
-  padding-top: 30px;
-  padding-right: 0px;
-  width: 20%;
-  position: relative;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  font-size: 1.1em;
-}
-
-li a:hover {
-  background-color: #111;
-}
-
 img {
   position: absolute;
 }
@@ -94,30 +57,55 @@ img {
   left: 50%;
 }
 
-.logo {
+.texto1,.texto2,.texto3,.texto4,.texto5,.texto6 {
+text-decoration: underline;
+color: #ffffff;
+}
+
+.texto1,.texto2,.texto3 {
+  width: 160px;
+  position: relative;
+  display: block;
+  text-align: left;
+  left: 2%;
+  top: 18%;
+}
+
+.texto4,.texto5,.texto6{
+  position: relative;
+  display: block;
+  text-align: right;
+  bottom: 40%;
+  right: 2%;
+}
+
+
+.divfooter {
+  position: absolute;
+  background-color: #02cd9e;
+  width: 100%;
+  height: 12%;
+  top: 88%;
+}
+.logo1,.logo2 {
   background: url('media/logo.png') no-repeat center center;
   border: none;
   background-size: contain;
-  width: 100px;
+  width: 60px;
   height: 60px;
   top: 1%;
   left: 2%;
   z-index: 200;
 }
 
-.divimg1,.divimg2 {
-  position :absolute;
-}
-
 .divimg1{
-  max-width:100%;
-  width: 40%;
-  max-height:300px;
-  height:200px ;
+  width: 45%;
+  height: 35%;
   background: url(media/foto1.png)no-repeat center;
-  top: 12%;
+  top: 9.5%;
   left: 50%;
   background-size: cover;
+  border: 1px solid black;
 }
 
 @media screen and (max-width: 768px) {
