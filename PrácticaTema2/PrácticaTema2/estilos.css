@@ -7,25 +7,51 @@
   font-family: Fuente1;
 }
 
+@font-face {
+  font-family: Fuente2;
+  src: url(media/static/SansitaSwashed-Light.ttf);
+}
+
 body {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
+
+.logo1,.logo2 {
+  background: url('media/logo.png') no-repeat center center;
+  background-size: contain;
+  width:4%;
+  height: 7%;
+  position: absolute;
+}
+
+.logo1 {
+  top: 0%;
+  left:5%;  
+}
+
+.logo2 {
+  top: 92.5%;
+  left: 48%;
+}
+
 .navbar {
-  overflow: hidden;
   background-color: #02cd9e;
-  height: 8%;
+  height: 7%;
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  display: flex;
 }
 
 .navbar a {
-  float:right;
-  font-size: 18px;
+  font-size: 1.6vw;
   color: white;
-  text-align:right;
-  padding-left: 8%;
-  padding-right: 8%;
-  padding-top: 1.5%;
-  padding-bottom: 1.5%;
+  padding-left: 5.64%;
+  padding-right: 5.64%;
+  padding-top: 1%;
   text-decoration: none;
 }
 
@@ -34,104 +60,73 @@ body {
   color: black;
 }
 
+.div1,.div2,.div3,.div4 {
+  position: absolute;
+  display: block;
+  background-color: #f5f5f5;
+  width: 44.44%;
+  height: 30.79%;
+}
+
+.div1 {
+  top: 8.5%;
+  left: 1.68%;
+}
+
 img {
   position: absolute;
 }
 
-.div1,.div2, .divimg1 {
-  position: absolute;
-  display: flex;
-  display: block;
-  background-color: #f5f5f5;
-  width: 45%;
-  height: 35%;
-}
-
-.div1 {
-  top: 9.5%;
-  left: 2%;
-}
-
 .div2 {
-  top: 50%;
-  left: 50%;
-}
-
-.texto1,.texto2,.texto3,.texto4,.texto5,.texto6 {
-text-decoration: underline;
-color: #ffffff;
-}
-
-.texto1,.texto2,.texto3 {
-  width: 160px;
-  position: relative;
-  display: block;
-  text-align: left;
-  left: 2%;
-  top: 18%;
-}
-
-.texto4,.texto5,.texto6{
-  position: relative;
-  display: block;
-  text-align: right;
-  bottom: 40%;
-  right: 2%;
-}
-
-
-.divfooter {
-  position: absolute;
-  background-color: #02cd9e;
-  width: 100%;
-  height: 12%;
-  top: 88%;
-}
-.logo1,.logo2 {
-  background: url('media/logo.png') no-repeat center center;
-  border: none;
+  top: 11.5%;
+  left: 49%;
+  background-color: #ffffff;
+  background-image: url('media/foto1.png');
+  background-repeat: no-repeat;
   background-size: contain;
-  width: 60px;
-  height: 60px;
-  top: 1%;
-  left: 2%;
-  z-index: 200;
 }
 
-.divimg1{
-  width: 45%;
-  height: 35%;
-  background: url(media/foto1.png)no-repeat center;
-  top: 9.5%;
-  left: 50%;
-  background-size: cover;
-  border: 1px solid black;
+.div3 {
+  top: 52.14%;
+  left: 1.68%;
+  background-color: #ffffff;
+  background-image: url('media/foto2.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-@media screen and (max-width: 768px) {
-  .divimg1{
-    max-width:100%;
-    max-height:300px;
-    background: url(media/foto1.png)no-repeat center center;
-    top: 12%;
-    left: 50%;
-    background-size: cover;
-  }
-
+.div4 {
+  top: 52.14%;
+  left: 49%;
 }
 
-.divimg2 {
-  src: url(media/foto1.png);
+.textodiv1 {
+  position: absolute;
+  left: 3%;
+  bottom: 87.5%;
+  font-size: 1.7vW;
+  color: #808183;
+}
+
+.textodiv2 {
+  font-family: Fuente2;
+  position: absolute;
+  left: 4.5%;
+  top: 15%;
+  color: #808183;
+  text-align: center;
+  font-size: 1.7vw;
+  padding-right: 4.5%;
 }
 
 .divBarra1 {
   position: absolute;
   display: flex;
-  top: 10%;
+  top: 13%;
   left: 3%;
   background-color:#808183;
   width: 45%;
-  height: .58%;
+  height: 0.5%;
 }
 .divBarra2 {
   position: absolute;
@@ -139,42 +134,56 @@ color: #ffffff;
   top: 100%;
   background-color:#02cd9e;
   width: 100%;
-  height: 2%;
+  height: 1.5%;
 }
 
 button {
-  padding: 15px 50px;
+  padding: 0px 0px;
   cursor: pointer;
-  position: relative;
+  position: absolute;
+  width:39.36% ;
+  height: 15.99%;
 }
 
 .button-container {
-  position: relative;
-  display: flex;
+  position: absolute;
   gap: 0px;
-  flex-wrap: wrap;
   justify-content: center;
+  width:39.36% ;
+  height: 15.99%;
 }
 
-/* Hover affect with left to right animation */
-
-.hover-left-right {
-  position: relative;
-  display: flex;
-  top: 58%;
-  left: 3.5%;
+.hover-left-right1,.hover-left-right2 {
   justify-content: center;
   align-items: center;
+  width:39.36% ;
+  height: 15.99%;
   border-radius: 0px;
   color: black;
-  background: white;
+  background: #f5f5f5;
   border: 1px solid black;
-  border-left: 12px solid black;
+  border-left: 0.5em solid black;
   cursor: pointer;
-  overflow:hidden; /* Hide the overflow for the pseudo-element */
+  overflow:hidden;
 }
 
-.hover-left-right::before {
+.hover-left-right1 {
+  position: absolute;
+  display: flex;
+  top: 74.45%;
+  left: 3.68%;
+  font-size: 1.7vw;
+}
+
+.hover-left-right2 {
+  position: absolute;
+  display: flex;
+  top: 74.45%;
+  left: 56.59%;
+  font-size: 1.7vw;
+}
+
+.hover-left-right1::before {
   content: "";
   position: absolute;
   top: 0;
@@ -183,10 +192,69 @@ button {
   height: 100%;
   background-color: black;
   color: white;
-  /* BG colour is transparent */
   transition: left 0.3s ease;
 }
 
-.hover-left-right:hover::before {
+.hover-left-right2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+  transition: left 0.3s ease;
+}
+
+.hover-left-right1:hover::before {
   left: 0;
+}
+
+.hover-left-right2:hover::before {
+  left: 0;
+}
+
+.divfooter {
+  position: absolute;
+  background-color: #02cd9e;
+  width: 100%;
+  height: 14.4%;
+  top: 85.65%;
+}
+
+.divfooter a {
+  position: absolute;
+  color: #ffffff;
+  font-size: 1vw;
+}
+
+.a1 {
+  left: 2%;
+  top: 34%;
+}
+
+.a2 {
+  left: 2%;
+  top: 54%;
+}
+
+.a3 {
+  left: 2%;
+  top: 74%;
+}
+
+.a4 {
+  left: 90%;
+  top: 34%;
+}
+
+.a5 {
+  left: 90%;
+  top: 54%;
+}
+
+.a6 {
+  left: 90%;
+  top: 74%;
 }
