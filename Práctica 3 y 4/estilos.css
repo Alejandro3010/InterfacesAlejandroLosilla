@@ -1,145 +1,19 @@
 body {
-    margin: 0;
-    padding: 0;;
-  }
-
-.container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-        "div1"
-        "div3"
-        "div4"
-        "div2";
+  margin: 0;
+  padding: 0;
 }
 
-@media (max-width: 600px) {
-    /* Estilos para pantallas más grandes */
-    .container {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-        "div1"
-        "div2"
-        "div2"
-        "div2";
-    }
-    body {
-      margin: 0%;
-    }
-
-    .div1,.div2,.div3,.div4 {
-      border: 1px solid black;
-      height: 20vh;
-      width: auto;
-      margin-top: 2.5%;
-      margin-bottom: 2.5%;
-    }
+.grid {
+  display: grid;
+  grid-template-areas: 
+  "head head"
+  "menu main"
+  "foot foot";
+  grid-template-rows: auto 2fr auto; /* Adjusted to include rows */
+  height: 100vh; /* Added height to fill the entire viewport */
 }
 
-
-@media (min-width: 600px) {
-    /* Estilos para pantallas más grandes */
-    .container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas:
-            "navbar"
-            "div1 div2"
-            "div3 div4"
-            "divfooter";
-    }
-}
-
-@media (min-width: 900px) {
-    /* Estilos para pantallas aún más grandes */
-    .container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas:
-            "navbar"
-            "div1 div2"
-            "div3 div4"
-            "divfooter";
-    }
-}
-
-/* Estilos para el encabezado y el pie de página */
-header, footer {
-    padding: 20px;
-    background-color: white;
-    color: #fff;
-}
-
-.navbar {
-    visibility: visible;
-    background-color: #02cd9e;
-    height: 7%;
-    position: fixed;
-    width: 100%;
-    justify-content: center;
-    display: flex;
-    z-index: 1;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .navbar a {
-    font-size: 1.6vw;
-    color: white;
-    padding-left: 5.64%;
-    padding-right: 5.64%;
-    padding-top: 1%;
-    text-decoration: none;
-  }
-  
-  .navbar a:hover {
-    background-color: #ffffff;
-    color: black;
-  }
-
-  .divfooter {
-    position: absolute;
-    background-color: #02cd9e;
-    width: 100%;
-    height: 19.4%;
-    top: 85.65%;
-  }
-  
-  .divfooter a {
-    position: absolute;
-    color: #ffffff;
-    font-size: 1vw;
-  }
-  .div1 {
-    top: 8.5%;
-    left: 1.68%;
-  }
-  
-  img {
-    position: absolute;
-  }
-  
-  .div2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 11.5%;
-    left: 49%;
-    background-color: #ffffff;
-    background-image: url('media/img/foto1.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    
-  }
-  
-  .div3 {
-    top: 52.14%;
-    left: 1.68%;
-    background-color: #ffffff;
-    background-image: url('media/img/foto1.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-  
-  .div4 {
-    top: 52.14%;
-    left: 49%;
-  }
+.a { grid-area: head; background-color: blue; }
+.b { grid-area: menu; background-color: red; }
+.c { grid-area: main; background-color: green; }
+.d { grid-area: foot; background-color: orange; }
