@@ -3,6 +3,17 @@ body{
 }
 
 
+/*Esconder la barra de scroll pero manteniendo la funcionalidad*/
+body::-webkit-scrollbar {
+    display: none
+}
+
+audio {
+	position: absolute;
+	left: 55%;
+	top: 106%;
+}
+
 @font-face {
 	font-family: Sora;
 	src: url(media/fonts/static/Sora-Regular.ttf);
@@ -13,6 +24,129 @@ body{
 	src: url(media/fonts/static/SansitaSwashed-Light.ttf);
 }
 
+/*Todos los estilos relacionados con el menu que se desplega para la media query de móvil*/
+.menudrop {
+	background-color: #02cd9e;
+	font-size: 2rem;
+	color: white;
+	border: none;
+	cursor: pointer;
+	text-align: left;
+}
+.drop {
+	height: 8vh;
+	width: 100%;
+	display: grid;
+	position: fixed;
+	z-index: 3;
+}
+.contenidodrop {
+	display: none;
+	background-color: #f9f9f9;
+	font-size: 1.25rem;
+	width: 100%;
+	z-index: 1;
+	font-family: Sora;
+}
+.contenidodrop a {
+	height: 6vh;
+	color: black;
+	text-decoration: none;
+	text-align: left;
+	display: block;
+}
+.contenidodrop a:hover {background-color: #02cd9e;
+	color: white;  
+}
+.drop:hover .contenidodrop {
+	display: block;
+}
+.drop:hover .menudrop {
+	background-color: black;
+}
+
+/*El contenedor/wrapper de los elementos principales para móvil*/
+.containermov {
+	position: absolute;
+	padding-top: 10%;
+	padding-bottom: 15%;
+	width: 100%;
+	height: auto;
+	display: grid;
+	grid-template: repeat(4, 1fr) / repeat(1, 1fr);
+	grid-gap: 2.5%;
+}
+
+/*Los elementos principales de móvil*/
+.mov1,.mov2,.mov3,.mov4 {
+height: 40vh;
+font-family: Sansita;
+color: gray;
+text-align: center;
+}
+
+.mov1,.mov3 {
+	background-color: #f5f5f5;
+	font-size: 2rem;
+	margin: 5%;
+	width: auto;
+	border: 0;
+}
+
+.mov1 {
+ grid-row: 1;
+}
+
+.mov3 {
+	grid-row:3;
+}
+
+/*Transición en los cuadros de texto de móvil*/
+
+/*Ajuste de las imágenes de móvil*/
+.mov2 {
+grid-row: 2;
+width: 80vw;
+margin: auto;
+}
+
+.mov4 {
+grid-row: 4;
+background-image: url(media/img/foto6.png);
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center;
+}
+
+/*Footer del movil para que siempre se muestre abajo aún habiendo scroll*/
+.footmovil {
+	background-color: #02cd9e;
+	width: 100%;
+	height: auto;	
+	position: fixed;
+	display: grid;
+	bottom: 0;
+	grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+}
+
+.footmovil a {
+	color: white;
+	width: 100%;
+	height: auto;
+	display: grid;
+}
+
+.a1,.a2,.a3 {
+	grid-column: 1;
+	float: left;
+}
+
+.a4,.a5,.a6 {
+grid-column: 2;
+text-align: right;
+}
+
+/*La imagen principal de pantalla de ordenador sin fondo para poder posicionarla encima del video y de la foto con fondo*/
 .nobg {
 	background-image: url(media/img/imgsinfondo.png);
 	background-repeat: no-repeat;
@@ -20,33 +154,25 @@ body{
 	height:35vh;
 	width: auto;
 	background-position: center;
-	z-index: 1;
+	z-index: 3;
 }
 
+/*Estilos del video*/
 .video1{
-	top: 5%;
-	left: 38%;
-	height: auto;
-	width: 30%;
-	position: absolute;
+	padding-top: 4vh;
+	padding-left: 8vw;
+	height: 30vh;
+	width: auto;
 	grid-row: 1;
 	grid-column: 2;
-}
-
-.video2{
-	top: 15%;
-	left: 29%;
-	height: auto;
-	width: 15%;
-	position: absolute;
-	grid-row: 1;
-	grid-column: 2;
+	z-index: 2;
 }
 
 .texto1, .texto2, .item, .containerfooter a {
 	font-family: Sora;
 }
 
+/*Contenedor/wrapper de la barra de navegacion de la pagina en pantalla de ordenador*/
 .wrapper{
 	width: 100%;
 	height: auto;
@@ -55,6 +181,7 @@ body{
 	grid-gap: 0px;
 }
 
+/*Los items dentro de la barra de navegacion de arriba de la pagina para la query de ordenador*/
 .item{
 	width: 100%;
 	height: 8vh;
@@ -81,6 +208,7 @@ body{
     background-position: center;  
 }
 
+/*Posicion de cada item de la barra de navegacion*/
 .item1{
 	grid-column: 2;
 }
@@ -97,6 +225,7 @@ body{
 	grid-column: 5; 
 }
 
+/*Contenedor de los elementos principales para la pantalla de ordenador */
 .container{
 	width: 100%;
 	height: auto;
@@ -108,6 +237,7 @@ body{
 	position: relative;
 }
 
+/*Estilos relacionados con los elementos principales*/
 .texto1,.texto2 {
 	background-color: #f5f5f5;
 	text-align: center;
@@ -132,6 +262,7 @@ body{
 	margin-left: 2%;
 }
 
+/*Texto lorem ipsum*/
 .lorem {
 	font-family: Sansita;
 	position: absolute;
@@ -140,6 +271,7 @@ body{
 	color: grey;
 }
 
+/*Texto "titulo"*/
 .titulo {
 	position: absolute;
 	font-size: 1.25rem;
@@ -147,6 +279,7 @@ body{
 	margin-left: 2%;
 	float: left;
 }
+
 .texto1{
 	grid-column: 1;
 	grid-row: 1;
@@ -159,14 +292,16 @@ body{
 	margin-right: 1.5vw;
 }
 
+/*Estilos para las imagenes que no haya repeticion y centradas*/
 .img1,.img2 {
 	background-repeat: no-repeat;
 	background-size: contain;
-	height:35vh;
+	height: 35vh;
 	background-position: center;
 	z-index: -1;
 }
 
+/*El contenedor para el footer de la pagina en modo ordenador*/
 .containerfooter {
 	background-color: #02cd9e;
 	width: 100%;
@@ -176,11 +311,13 @@ body{
 	grid-gap: 0;
 }
 
+/*Los <a> dentro del contenedor*/
 .containerfooter a {
 	color: white;
 	font-size: .8rem;
 }
 	
+/*Contenedor en barra de lado izquierdo de la pagina en modo tablet*/
 .containerasidesleft {
 	background-color: #02cd9e;
 	grid-template: repeat(3, 1fr) / repeat(1, 1fr);
@@ -192,6 +329,7 @@ body{
 	position: absolute;
 }
 
+/*Contenedor en barra de lado derecho de la pagina en modo tablet*/
 .containerasidesright {
 	background-color: #02cd9e;
 	grid-template: repeat(3, 1fr) / repeat(1, 1fr);
@@ -204,6 +342,7 @@ body{
 	position: absolute
 }
 
+/*Los <a> de las barras laterales de la pagina en modo tablet*/
 .containerasidesleft a,.containerasidesright a {
 	color: white;
 	text-align: center;
@@ -211,14 +350,21 @@ body{
 	padding-left: 2%;
 }
 
-.btn {
+/*Los botones de las barras laterales*/
+.btn,.btn2,.btn3 {
 	font-family: Sora;
 	margin: 20%;
-	background-color:#f5f5f5;
-	border: 0px ;
-	transition: ease;
-	transition-duration: 0.5s;
-	transition-delay: 0.1s;
+	background-color: #f5f5f5;
+	overflow-wrap: break-word;
+}
+
+/*Cada uno con su estilo*/
+.btn {
+    border: 0;
+    font-size: 0.75rem;
+    transition: ease;
+    transition-duration: 0.5s;
+    transition-delay: 0.1s;
 }
 
 .btn:hover {
@@ -227,8 +373,6 @@ body{
 
 .btn2{
 font-size: Sora;
-margin: 20%;
-background-color: #f5f5f5;
 border: 0px;
 }
 
@@ -238,9 +382,7 @@ border: 0px;
 }
 
 .btn3 {
-	margin: 20%;
-	background-color: #f5f5f5;
-	border: 0px;
+border: 0px;
 	transition: 0.5s;
 }
 
@@ -249,6 +391,8 @@ border: 0px;
 	transition: 0.5s;
 }
 
+
+/*Los <a> del footer para ordenador*/
 .a1,.a2,.a3{
 	text-align: left;
 	padding-left: 2%;
@@ -267,6 +411,7 @@ border: 0px;
 	grid-row: 3;
 }
 
+/*El logo en el footer*/
 .footimg {
    grid-column: 2;
    grid-row: 1/4;
@@ -294,6 +439,7 @@ border: 0px;
 	grid-row: 3;
 }
 
+/*Estilos del boton de "ver mas" del modo ordenador*/
 .hover-left-right1,.hover-left-right2 {
 	justify-content: center;
 	align-items: center;
@@ -334,9 +480,15 @@ transition: left 0.3s ease;
 left: 0;
 }
 
+/*Media querie para ordenadores*/
+@media only screen and (min-width: 961px) {
 
-@media only screen and (min-width: 960px) {
-.ball {
+/*Deshabilito los componentes que no corresponden con ordenador*/
+.containermov {
+	display: none;
+}
+
+.footmovil {
 	display: none;
 }
 
@@ -344,16 +496,7 @@ left: 0;
 	display: none;
 }
 
-.zoomimg {
-	width: 90%;
-	transition: transform 0.5s ease;
-	cursor: zoom-in;
-}
-
-.zoomimg:hover {
-	transform: scale(1.1); /* Ajusta el factor de escala según tus necesidades */
-}
-
+/*Inserto las imagenes del modo ordenador*/
 .img1{
 	grid-column: 2;
 	grid-row: 1;
@@ -378,12 +521,15 @@ left: 0;
 }
 }
 
-@media only screen and (max-width: 960px) {
+/*Media querie para tablets*/
+@media only screen and (min-width: 601px) and (max-width: 960px) {
+	/*El mismo contenedor de ordenador modificado para tablet*/
 	.container{
 		grid-template: repeat(4, 1fr) / repeat(1, 1fr);
 		gap: 2vh;
 	}
 	
+	/*Los elementos de ordenador modificados para tablet*/
 	.texto1,.texto2 {
 		height: 20vh;
 		margin-left: 25%;
@@ -408,7 +554,6 @@ left: 0;
 		height:20vh;
 	}
 
-	
 	.img1{
 		grid-column: 1;
 		grid-row: 2;
@@ -422,12 +567,66 @@ left: 0;
 		background-image: url('media/img/foto4.jpg');
 		margin-left: 1.5vw;	
 	}
-	
+
+	/*Deshabilitos los componentes que no corresponden para tablet*/
 	.containerfooter {
 	display: none;
+	}
+
+	.nobg {
+		display: none;
+	}
+
+	.video1 {
+		display: none;
+	}
+
+	.containermov {
+		display: none;
+	}
+	
+	.footmovil {
+		display: none;
+	}
+	
+	.drop {
+		display: none;
+	}
+
+	audio {
+		display: none;
 	}
 
 	.hover-left-right1,.hover-left-right2 {
 		display: none;
 	}
+}
+
+/*Media querie para moviles*/
+@media only screen and (max-width: 600px) {
+
+/*Deshabilito los componentes que no corresponden con movil*/
+.containerfooter {
+	display: none;
+}
+
+.container {
+	display: none;
+}
+
+.containerasidesleft{
+	display: none;
+}
+.containerasidesright{
+	display: none;
+}
+
+.wrapper {
+	display: none;
+}
+
+audio {
+	display: none;
+}
+
 }
