@@ -3,6 +3,14 @@ body, html {
     height: 100%;
   }
 
+  @font-face {
+    font-family: Pixel;
+    src: url(fonts/Round9x13.ttf);
+  }
+
+  * {
+    font-family: Pixel;
+  }
   .bg {
     background-image: url(images/colinas.png);
     height: 100%;
@@ -31,7 +39,7 @@ body, html {
     background-color: #023e8a;
     border-radius: 50px;
     color: white;
-    padding: 10px 30px;
+    text-align: center;
     width: 6vw;
     height: 3vw;
     margin-top: 5%;
@@ -51,8 +59,60 @@ body, html {
     margin-top: 9%;
   }
 
-  
+  .suelo {
+    bottom: 0; 
+    position: absolute;
+    width: 100%;
+    height: 7.5%;
+    background-image: url(Assets/ladrilloentero.png);;
+    background-repeat: repeat;
+    background-size: contain;
+    z-index: 4;
+  }
 
+  .cielo, .cielo1, .cielo2 {
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 3;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+  .cielo {
+    background-image: url(Assets/cielo0.png);
+    animation: parallaxIzquierda 15s infinite alternate;
+  }
+
+  .cielo1 {
+    background-image: url(Assets/cielo1.png);
+    animation: parallaxDerecha 15s infinite alternate;
+  }
+
+  .cielo2 {
+    background-image: url(Assets/cielo2.png);
+    animation: parallaxIzquierda 15s infinite alternate;
+  }
+
+  @keyframes parallaxIzquierda {
+    0% {
+        transform: translateX(20px);
+    }
+    100% {
+        transform: translateX(-20px);
+    }
+}
+
+@keyframes parallaxDerecha {
+  0% {
+      transform: translateX(-20px);
+  }
+  100% {
+      transform: translateX(20px);
+  }
+}
+  
   .loader {
     position: absolute;
     top: 50%;
@@ -131,3 +191,4 @@ body, html {
     height: 40vh;
     z-index: 1;
   }
+
