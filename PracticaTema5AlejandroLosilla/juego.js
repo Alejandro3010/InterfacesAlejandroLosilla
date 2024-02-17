@@ -39,7 +39,7 @@ const tiempoIntervalo = 20; // Tiempo hasta que se reppite la funcion de correr
 document.addEventListener('keydown', function(event) {
   if (event.keyCode === 68 && !estaMoviendo) {
     //Cambia la imagen a corriendo
-    document.querySelector('.personaje').style.backgroundImage = 'url(Movimientos/corriendoder.gif)';
+    document.querySelector('.personaje').style.backgroundImage = 'url(Movimientos/correrderecha.gif)';
 
     //Inicia el movimiento continuo hacia la derecha
     movimiento = setInterval(function() {
@@ -75,7 +75,7 @@ function moverDerecha(velocidad) {
 document.addEventListener('keydown', function(event) {
   if (event.keyCode === 65 && !estaMoviendo) {
     // Cambia la imagen del personaje corriendo
-    document.querySelector('.personaje').style.backgroundImage = 'url(Movimientos/corriendoizq.gif)';
+    document.querySelector('.personaje').style.backgroundImage = 'url(Movimientos/correrizquierda.gif)';
 
     //Empieza a correr
     movimiento = setInterval(function() {
