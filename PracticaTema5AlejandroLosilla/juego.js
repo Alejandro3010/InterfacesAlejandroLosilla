@@ -3,12 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
   document.querySelector('.loader').style.display = 'block';
   document.querySelector('.contenido').style.display = 'none';
   document.querySelector('.bg').style.display = 'none';
-  document.querySelector('.suelo').style.display = 'none';
-  document.querySelector('.nube1').style.display = 'none';
-  document.querySelector('.nube2').style.display = 'none';
-  document.querySelector('.nube3').style.display = 'none';
-  document.querySelector('.nube4').style.display = 'none';
-  document.querySelector('.personaje').style.display = 'none';
+  document.querySelector('.juego').style.display = 'none';
 
   //Carga el loader durante 4 segundos y despues se oculta y muestra el resto
   setTimeout(function() {
@@ -23,11 +18,7 @@ function jugar() {
   document.querySelector('.contenido').style.display = 'none';
   document.querySelector('.suelo').style.display = 'block';
   document.querySelector('.bg').style.display = 'none';
-  document.querySelector('.nube1').style.display = 'block';
-  document.querySelector('.nube2').style.display = 'block';
-  document.querySelector('.nube3').style.display = 'block';
-  document.querySelector('.nube4').style.display = 'block';
-  document.querySelector('.personaje').style.display = 'block';
+  document.querySelector('.juego').style.display = 'block';
 }
 
 let movimiento;
@@ -65,11 +56,20 @@ document.addEventListener('keyup', function(event) {
 //Función para mover el personaje hacia la derecha
 function moverDerecha(velocidad) {
   const character = document.querySelector('.personaje');
-  const posicionActual = parseInt(window.getComputedStyle(character).left); //Left hace referencia a position left sobre la imagen de modo que hace espacio a la izquierda de la imagen y de esa forma se mueve a la derecha
+  const posicionActual = parseInt(window.getComputedStyle(character).left);
 
-  //Mueve el personaje hacia la derecha
-  character.style.left = posicionActual + velocidad + 'px';
-};
+  // Obtén el ancho total de la pantalla
+  const anchoPantalla = window.innerWidth;
+
+  // Calcula la nueva posición del personaje
+  const nuevaPosicion = posicionActual + velocidad;
+
+  // Verifica si la nueva posición está dentro de los límites de la pantalla
+  if (nuevaPosicion + character.clientWidth < anchoPantalla) {
+    // Mueve el personaje hacia la derecha
+    character.style.left = nuevaPosicion + 'px';
+  }
+}
 
 //Evento para cuando presionas la tecla "A"
 document.addEventListener('keydown', function(event) {
@@ -106,4 +106,37 @@ function moverIzquierda(velocidad) {
   //Mueve el personaje hacia la izquierda
   character.style.left = posicionActual - velocidad + 'px';//Velocidad en negativo para que se mueva a la izquierda
 };
+
+let saltando = false; // Variable para controlar el salto
+
+document.addEventListener('keydown', function(event) {
+  if (event.keyCode === 32 && !saltando) {
+    // Si presiona la barra espaciadora y no está saltando
+    saltar();
+  }
+});
+
+function saltar() {
+  const character = document.querySelector('.personaje');
+
+  saltando = true;
+
+  // Cambia la imagen a la del personaje saltando
+  character.style.backgroundImage = 'url(Movimientos/saltando.gif)';
+
+  // Agrega la clase de animación de salto
+  character.classList.add('saltando');
+
+  // Espera a que termine la animación y luego restablece todo
+  character.addEventListener('animationend', function() {
+    // Remueve la clase de animación de salto
+    character.classList.remove('saltando');
+
+    // Cambia la imagen de nuevo al estado normal
+    character.style.backgroundImage = 'url(Movimientos/quietoder.gif)';
+
+    // Restablece la variable de salto
+    saltando = false;
+  });
+}
 

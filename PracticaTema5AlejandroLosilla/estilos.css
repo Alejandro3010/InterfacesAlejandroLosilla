@@ -11,6 +11,7 @@ body, html {
   * {
     font-family: Pixel;
   }
+
   .bg {
     background-image: url(images/fondo.png);
     height: 100%;
@@ -119,6 +120,22 @@ body, html {
     }
   }
   
+  .saltando {
+    animation: saltar 1.25s ease-in-out;
+  }
+
+  @keyframes saltar {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-150px); /* Altura máxima del salto */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
   .personaje {
     background-image: url(Movimientos/quietoder.gif);
     background-repeat: no-repeat;
