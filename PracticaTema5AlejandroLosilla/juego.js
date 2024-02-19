@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector('.loader').style.display = 'none';
     document.querySelector('.contenido').style.display = 'block';
     document.querySelector('.bg').style.display = 'block';
-  }, 4000);
+  }, 3000);
 });
 
 //Muestra el juego al darle al boton
@@ -22,7 +22,9 @@ function jugar() {
 }
 
 let movimiento;
+let direccionSalto = '';
 let estaMoviendo = false; // Variable para controlar el movimiento
+let saltando = false; // Variable para controlar el salto
 const velocidad = 5; // Velocidad del personaje al correr
 const tiempoIntervalo = 20; // Tiempo hasta que se reppite la funcion de correr
 
@@ -107,36 +109,62 @@ function moverIzquierda(velocidad) {
   character.style.left = posicionActual - velocidad + 'px';//Velocidad en negativo para que se mueva a la izquierda
 };
 
-let saltando = false; // Variable para controlar el salto
-
+//Determinar si la tecla pulsada es a o d para decidir en que deireccion esta mirando que sera necesario para cargar el gif correcto durante el salto
 document.addEventListener('keydown', function(event) {
+  if (event.code === 'KeyA') {
+    estaMoviendo = true;
+    direccionSalto = 'izquierda';
+  } else if (event.code === 'KeyD') {
+    estaMoviendo = true;
+    direccionSalto = 'derecha';
+  }
+
   if (event.keyCode === 32 && !saltando) {
-    // Si presiona la barra espaciadora y no está saltando
-    saltar();
+    const direccion = estaMoviendo ? direccionSalto : '';
+    saltar(direccion);
   }
 });
 
-function saltar() {
+document.addEventListener('keyup', function(event) {
+  if (event.code === 'KeyA' || event.code === 'KeyD') {
+    estaMoviendo = false;
+    direccionSalto = ''; //Restablece la dirección del salto al soltar las teclas de movimiento
+  }
+});
+
+function saltar(direccion) {
   const character = document.querySelector('.personaje');
 
   saltando = true;
 
-  // Cambia la imagen a la del personaje saltando
-  character.style.backgroundImage = 'url(Movimientos/saltando.gif)';
+  //Cambia la imagen a la del personaje saltando segun la direccion del salto
+  if (direccion === 'izquierda') {
+    character.style.backgroundImage = 'url(Movimientos/saltoizquierda.gif)';
+  } else if (direccion === 'derecha') {
+    character.style.backgroundImage = 'url(Movimientos/saltoderecha.gif)';
+  } else {
+    //Si no hay dirección, usa la imagen por defecto
+    character.style.backgroundImage = 'url(Movimientos/saltoderecha.gif)'; // O la imagen predeterminada si no hay dirección
+  }
 
-  // Agrega la clase de animación de salto
+  //Lama a la clase salto para que se ejecute la animacion
   character.classList.add('saltando');
 
-  // Espera a que termine la animación y luego restablece todo
-  character.addEventListener('animationend', function() {
-    // Remueve la clase de animación de salto
+  //Espera a que termine la animación y luego restablece todo
+  setTimeout(function () {
+    //Quita la clase saltando porque el salto ha acabado
     character.classList.remove('saltando');
 
-    // Cambia la imagen de nuevo al estado normal
-    character.style.backgroundImage = 'url(Movimientos/quietoder.gif)';
+    //Cambia a la animacion del personaje quieto dependiendo de la aplicación
+    if (estaMoviendo) {
+      if (direccion === 'derecha') {
+        character.style.backgroundImage = 'url(Movimientos/quietoder.gif)';
+      } else {
+        character.style.backgroundImage = 'url(Movimientos/quietoizq.gif)';
+      }
+    }
 
     // Restablece la variable de salto
     saltando = false;
-  });
+  }, 1250); //Duración del gif para que el salto se vea adecuadamente
 }
-
