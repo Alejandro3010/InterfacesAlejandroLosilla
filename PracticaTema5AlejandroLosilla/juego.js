@@ -2,14 +2,16 @@ document.addEventListener("DOMContentLoaded", function() {
   //Oculta todos los elementos para dejar solo el loader
   document.querySelector('.loader').style.display = 'block';
   document.querySelector('.contenido').style.display = 'none';
-  document.querySelector('.bg').style.display = 'none';
+  document.querySelector('.fondoparallax').style.display = 'none';
   document.querySelector('.juego').style.display = 'none';
+  document.querySelector('.volver').style.display = 'none';
 
   //Carga el loader durante 4 segundos y despues se oculta y muestra el resto
   setTimeout(function() {
     document.querySelector('.loader').style.display = 'none';
     document.querySelector('.contenido').style.display = 'block';
-    document.querySelector('.bg').style.display = 'block';
+    document.querySelector('.fondoparallax').style.display = 'block';
+    document.querySelector('.volver').style.display = 'none';
   }, 3000);
 });
 
@@ -17,16 +19,17 @@ document.addEventListener("DOMContentLoaded", function() {
 function jugar() {
   document.querySelector('.contenido').style.display = 'none';
   document.querySelector('.suelo').style.display = 'block';
-  document.querySelector('.bg').style.display = 'none';
+  document.querySelector('.fondoparallax').style.display = 'none';
   document.querySelector('.juego').style.display = 'block';
+  document.querySelector('.volver').style.display = 'block';
 }
 
 let movimiento;
 let direccionSalto = '';
-let estaMoviendo = false; // Variable para controlar el movimiento
-let saltando = false; // Variable para controlar el salto
-const velocidad = 5; // Velocidad del personaje al correr
-const tiempoIntervalo = 20; // Tiempo hasta que se reppite la funcion de correr
+let estaMoviendo = false; //Variable para controlar el movimiento
+let saltando = false; //Variable para controlar el salto
+const velocidad = 5; //Velocidad del personaje al correr
+const tiempoIntervalo = 20; //Tiempo hasta que se reppite la funcion de correr
 
 //Evento para cuando presionas la tecla "D"
 document.addEventListener('keydown', function(event) {
@@ -144,7 +147,7 @@ function saltar(direccion) {
     character.style.backgroundImage = 'url(Movimientos/saltoderecha.gif)';
   } else {
     //Si no hay dirección, usa la imagen por defecto
-    character.style.backgroundImage = 'url(Movimientos/saltoderecha.gif)'; // O la imagen predeterminada si no hay dirección
+    character.style.backgroundImage = 'url(Movimientos/saltoderecha.gif)'; //la imagen predeterminada si no hay dirección
   }
 
   //Lama a la clase salto para que se ejecute la animacion
@@ -167,4 +170,13 @@ function saltar(direccion) {
     // Restablece la variable de salto
     saltando = false;
   }, 1250); //Duración del gif para que el salto se vea adecuadamente
+}
+
+function volverAlMenu() {
+  // Oculta la sección de juego y muestra la sección del menú
+  document.querySelector('.juego').style.display = 'none';
+  document.querySelector('.contenido').style.display = 'block';
+  document.querySelector('.fondoparallax').style.display = 'block';
+  document.querySelector('.volver').style.display = 'none';
+
 }

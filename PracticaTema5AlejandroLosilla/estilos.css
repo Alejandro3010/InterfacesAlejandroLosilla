@@ -12,9 +12,9 @@ body, html {
     font-family: Pixel;
   }
 
-  .bg {
-    background-image: url(images/fondo.png);
+  .bg,.fondo,.fondo2,.fondo3,.fondo4,.fondo5,.fondo6 {
     height: 100%;
+    width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -23,6 +23,82 @@ body, html {
     left: 0;
     width: 100%;
     z-index: -1;
+  }
+
+  .bg {
+    background-image: url(images/fondo.png);
+  }
+
+  .fondo2 {
+    background-image: url(images/fondo2.png);
+  }
+
+  .fondo3 {
+    background-image: url(images/fondo3.png);
+  }
+
+  .fondo4 {
+    background-image: url(images/fondo4.png);
+  }
+
+  .fondo5 {
+    background-image: url(images/fondo5.png);
+  }
+
+  .nubep1, .nubep2, .nubep3, .nubep4,.nubep5 {
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 0;
+  }
+
+  .nubep1 {
+    background-image: url(Assets/Cloud\ 5.png);
+    width: 10%;
+    height: 10%;
+    left: 8%;
+    top: 8%;
+    z-index: 3;
+    animation: parallaxIzquierda 20s infinite alternate;
+  }
+
+  .nubep2 {
+    background-image: url(Assets/Cloud\ 12.png);
+    width: 20%;
+    height: 20%;
+    left: 60%;
+    top: 20%;
+    z-index: 2;
+    animation: parallaxDerecha 20s infinite alternate;
+  }
+
+  .nubep3 {
+    background-image: url(Assets/Cloud\ 17.png);
+    width: 30%;
+    height: 30%;
+    left: 8%;
+    top: -8%;
+    z-index: 2;
+    animation: parallaxIzquierda 20s infinite alternate;
+  }
+
+  .nubep4 {
+    background-image: url(Assets/Cloud\ 9.png);
+    width: 15%;
+    height: 15%;
+    left: 70%;
+    top:15%;
+    animation: parallaxDerecha 20s infinite alternate;
+  }
+
+  .nubep5 {
+    background-image: url(Assets/Cloud\ 9.png);
+    width: 15%;
+    height: 15%;
+    left: 70%;
+    top:15%;
+    animation: parallaxDerecha 20s infinite alternate;
   }
 
   .contenido {
@@ -36,7 +112,7 @@ body, html {
     transform: translate(-50%, -50%);
   }
 
-  .inicio,.guia {
+  .inicio,.guia,.volver {
     background-color: #023e8a;
     border-radius: 50px;
     color: white;
@@ -52,13 +128,27 @@ body, html {
     background-color: #fff;
     color: #0066cc;
     border: solid 2px #0066cc;
-    }
+  }
 
   .guia {
-    width: 6vw;
-    height: 3vw;
     margin-top: 9%;
   }
+
+  .volver {
+    top: 5%;
+    left: 5%;
+    z-index: 5;
+    margin-top: 0%;
+    width: 9vw;
+  }
+
+  .volver:hover{
+    transition : 0.5s;
+    background-color: #fff;
+    color: #0066cc;
+    border: solid 2px #0066cc;
+    width: 9vw;
+  } 
 
   .suelo {
     bottom: 0; 
@@ -89,37 +179,52 @@ body, html {
 
   .nube2 {
     background-image: url(Assets/nubes2.png);
-    /**animation: parallaxDerecha 10s infinite alternate;**/
   }
 
   .nube3 {
     background-image: url(Assets/nubes3.png);
-    /**animation: parallaxIzquierda 5s infinite alternate;**/
   }
   .nube4 {
     background-image: url(Assets/estrellas1.png);
-   /**animation: parallaxIzquierda 5s infinite alternate;**/
    z-index: 1;
   }
 
   @keyframes parallaxIzquierda {
     0% {
-        transform: translateX(5%);
+      transform: translateX(10%)
     }
     100% {
-        transform: translateX(-5%);
+        transform: translateX(-10%);
+    }
+  }
+
+  @keyframes parallaxIzquierda2 {
+    0% {
+        transform: translateX(2%);
+    }
+    100% {
+        transform: translateX(-2%);
     }
   }
 
   @keyframes parallaxDerecha {
     0% {
-        transform: translateX(-5%);
+      transform: translateX(-10%);
     }
     100% {
-        transform: translateX(5%);
+        transform: translateX(10%);
     }
   }
-  
+
+  @keyframes parallaxDerecha2 {
+    0% {
+        transform: translateY(-1%);
+    }
+    100% {
+        transform: translateY(1%);
+    }
+  }
+
   .saltando {
     animation: saltar 1.25s ease-in-out;
   }
